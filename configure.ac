@@ -26,7 +26,7 @@ AM_PROG_CC_C_O
 AC_PROG_LIBTOOL
 
 # Checks for libraries.
-PKG_CHECK_MODULES(libusb, libusb-1.0 >= 1.0.3)
+PKG_CHECK_MODULES(libusb, libusb-1.0 >= 1.0)
 
 # Check additional platform flags
 case "$host_os" in
