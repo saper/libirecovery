@@ -198,6 +198,7 @@ static void init_shell(irecv_client_t client) {
 	irecv_event_subscribe(client, IRECV_PRECOMMAND, &precommand_cb, NULL);
 	irecv_event_subscribe(client, IRECV_POSTCOMMAND, &postcommand_cb, NULL);
 	while (!quit) {
+		debug("Before receive:\n");
 		error = irecv_receive(client);
 		if (error != IRECV_E_SUCCESS) {
 			debug("%s\n", irecv_strerror(error));

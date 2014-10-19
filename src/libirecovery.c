@@ -87,7 +87,7 @@ struct irecv_client_private {
 #define BUFFER_SIZE 0x1000
 #define debug(...) if(libirecovery_debug) fprintf(stderr, __VA_ARGS__)
 
-static int libirecovery_debug = 0;
+static int libirecovery_debug = 1;
 #ifndef WIN32
 static libusb_context* libirecovery_context = NULL;
 #endif
@@ -716,6 +716,7 @@ IRECV_API int irecv_usb_bulk_transfer(irecv_client_t client,
 
 #ifndef WIN32
 	ret = libusb_bulk_transfer(client->handle, endpoint, data, length, transferred, timeout);
+	debug("<libusb_bulk_transfer: %d>\n", ret);
 	if (ret < 0) {
 		libusb_clear_halt(client->handle, endpoint);
 	}
